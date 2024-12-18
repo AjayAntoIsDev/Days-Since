@@ -6,13 +6,15 @@ interface EarthquakeProps {
     data: unknown;
 }
 
-const Earthquake: React.FC<EarthquakeProps> = ({data}) => {
+const Earthquake: React.FC<EarthquakeProps> = ({ data}) => {
     // @ts-expect-error `data` is of type `unknown`
     const earthquakeData = data.find((item) => item.title === "Earthquake");
-
     return (
-        <>
-            <BgVideo videoUrl="https://cloud-5z8cqlrs1-hack-club-bot.vercel.app/0earthquake_rubble_drone_video.mp4" opacity={0.1}/>
+        <div>
+            <BgVideo
+                videoUrl="https://cloud-5z8cqlrs1-hack-club-bot.vercel.app/0earthquake_rubble_drone_video.mp4"
+                opacity={0.1}
+            />
             <EventCard
                 targetEpoch={earthquakeData.timestamp}
                 eventTitle="Earthquake"
@@ -27,7 +29,7 @@ const Earthquake: React.FC<EarthquakeProps> = ({data}) => {
                     </p>
                 }
             />
-        </>
+        </div>
     );
 };
 

@@ -1,10 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import Earthquake from "./pages/Earthquake";
 import Tsunami from "./pages/Tsunami";
+import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
+import {
+    HashNavigation,
+    Pagination,
+    Navigation,
+} from "swiper/modules";
+
+// @ts-expect-error stupid imports
+import "swiper/css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+
 
 interface EarthquakeData {
-    // Define the structure of your JSON data here, for example:
     id: string;
     date: string;
     location: string;
@@ -15,6 +26,8 @@ const App: React.FC = () => {
     const [data, setData] = useState<EarthquakeData[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const swiperRef = useRef<SwiperRef>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,8 +53,30 @@ const App: React.FC = () => {
         fetchData();
     }, []);
 
+    const handleMouseWheel = (e: React.WheelEvent) => {
+        if (!swiperRef.current) return;
+
+        if (e.deltaY > 0) {
+            swiperRef.current.swiper.slideNext();
+        } else {
+            swiperRef.current.swiper.slidePrev();
+        }
+    };
+
+    const goToPrevSlide = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slidePrev();
+        }
+    };
+
+    const goToNextSlide = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideNext();
+        }
+    };
+
     return (
-        <>
+        <div onWheel={handleMouseWheel} className="relative h-screen">
             {loading && (
                 <div className="modal modal-open">
                     <div className="modal-box">
@@ -72,11 +107,42 @@ const App: React.FC = () => {
 
             {!loading && !error && data && (
                 <>
-                    <Earthquake data={data} />
-                    <Tsunami data={data} />
+                    <Swiper
+                        ref={swiperRef}
+                        modules={[HashNavigation, Pagination, Navigation]}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        onSlideChange={(swiper) =>
+                            setCurrentSlide(swiper.activeIndex)
+                        }>
+                        <SwiperSlide>
+                            <Earthquake data={data} />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Tsunami data={data} />
+                        </SwiperSlide>
+                    </Swiper>
+
+                    {/* Navigation Buttons */}
+                    <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
+                        <button
+                            onClick={goToPrevSlide}
+                            className="text-surface-a50 disabled:text-surface-a20"
+                            disabled={currentSlide === 0}>
+                            <ChevronLeft />
+                        </button>
+                    </div>
+                    <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
+                        <button
+                            onClick={goToNextSlide}
+                            className="text-surface-a50 disabled:text-surface-a20"
+                            disabled={currentSlide === 1}>
+                            <ChevronRight />
+                        </button>
+                    </div>
                 </>
             )}
-        </>
+        </div>
     );
 };
 
