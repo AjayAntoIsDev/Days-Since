@@ -1,7 +1,7 @@
 # Days Since
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fdays-since.floppy.us.kg)](https://days-since.floppy.us.kg)
-(![ScreenShot](https://cloud-kmrlvatpq-hack-club-bot.vercel.app/0screenshot_2024-12-19_at_6.57.21___pm.png))
+![ScreenShot](https://cloud-dsvhel6dk-hack-club-bot.vercel.app/0screenshot_2024-12-19_at_6.58.39___pm.png)
 
 ## Overview
 **Days Since** is a modern, minimalistic website that tracks how many days have passed since significant world events like earthquakes, tsunamis, tornadoes, volcanic eruptions, and asteroid impacts. Stay informed and gain perspective on global occurrences with our sleek and user-friendly interface.
