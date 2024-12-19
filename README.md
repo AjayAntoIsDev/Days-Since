@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# Days Since
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fdays-since.floppy.us.kg)](https://days-since.floppy.us.kg) [![GitHub](https://img.shields.io/github/license/AjayAntoIsDev/Days-Since)](https://github.com/AjayAntoIsDev/Days-Since/blob/main/LICENSE)
 
-Currently, two official plugins are available:
+## Overview
+**Days Since** is a modern, minimalistic website that tracks how many days have passed since significant world events like earthquakes, tsunamis, tornadoes, volcanic eruptions, and asteroid impacts. Stay informed and gain perspective on global occurrences with our sleek and user-friendly interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Live Demo
+🌐 [Visit the site here](https://days-since.floppy.us.kg)
 
-## Expanding the ESLint configuration
+### Repository
+📂 [View the GitHub repository](https://github.com/AjayAntoIsDev/Days-Since)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+- **Dynamic Countdown:** Automatically updates days since the last occurrence of world events.
+- **Event Categories:** Includes earthquakes, tsunamis, tornadoes, volcanoes, and asteroid impacts.
+- **User-Friendly Design:** Built with Tailwind CSS for a responsive and visually appealing UI.
+- **High Performance:** Powered by React and Vite for fast, seamless interactions.
+- **External API Integration:** Utilizes data from [neal.fun](https://neal.fun/) to fetch real-time event details.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
+- **Frontend Framework:** [React](https://reactjs.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **CSS Framework:** [Tailwind CSS](https://tailwindcss.com/)
+- **API:** [neal.fun](https://neal.fun/)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/AjayAntoIsDev/Days-Since.git
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd Days-Since
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to `http://localhost:5173` to view the app.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+## Acknowledgments
+
+- [React](https://reactjs.org/) for its declarative UI framework.
+- [Vite](https://vitejs.dev/) for its blazing-fast build tool.
+- [Tailwind CSS](https://tailwindcss.com/) for elegant styling.
+- [neal.fun](https://neal.fun/) for providing the API data.
