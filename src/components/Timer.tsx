@@ -51,11 +51,9 @@ const Timer: React.FC<TimerProps> = ({ targetEpoch }) => {
     return (
         <div className="flex gap-5">
             <div>
-                {/* @ts-expect-error */}
                 <span className="countdown font-mono text-3xl">
-                    {/* @ts-expect-error */}
-                    {timeElapsed.days < 99 ? (
-                        <span style={{ "--value": timeElapsed.days }}></span>
+                    {/* @ts-expect-error stupid errors */}
+                    {timeElapsed.days < 99 ? (<span style={{ "--value": timeElapsed.days }}></span>
                     ) : (
                         timeElapsed.days
                     )}
@@ -63,25 +61,22 @@ const Timer: React.FC<TimerProps> = ({ targetEpoch }) => {
                 days
             </div>
             <div>
-                {/* @ts-expect-error */}
                 <span className="countdown font-mono text-3xl">
-                    {/* @ts-expect-error */}
+                    {/* @ts-expect-error stupid errors */}
                     <span style={{ "--value": timeElapsed.hours }}></span>
                 </span>
                 hours
             </div>
             <div>
-                {/* @ts-expect-error */}
                 <span className="countdown font-mono text-3xl">
-                    {/* @ts-expect-error */}
+                    {/* @ts-expect-error stupid errors*/}
                     <span style={{ "--value": timeElapsed.minutes }}></span>
                 </span>
                 min
             </div>
             <div>
-                {/* @ts-expect-error */}
                 <span className="countdown font-mono text-3xl">
-                    {/* @ts-expect-error */}
+                    {/* @ts-expect-error stupid errors */}
                     <span style={{ "--value": timeElapsed.seconds }}></span>
                 </span>
                 sec
