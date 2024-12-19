@@ -2,30 +2,31 @@ import React from "react";
 import BgVideo from "../components/BgVideo";
 import EventCard from "../components/EventCard";
 
-interface SolarFlareProps {
+interface TyphoonProps {
     data: unknown;
 }
 
-const SolarFlare: React.FC<SolarFlareProps> = ({data}) => {
+const Typhoon: React.FC<TyphoonProps> = ({data}) => {
     // @ts-expect-error `data` is of type `unknown`
-    const SolarFlareData = data.find((item) => item.title === "Solar Flare");
+    const TyphoonData = data.find((item) => item.title === "Typhoon");
 
     return (
         <>
             <BgVideo
-                videoUrl="https://cloud-ehdg4z92c-hack-club-bot.vercel.app/0fiery_looping_rain_on_the_sun__1_.mp4"
-                opacity={0.3}
+                videoUrl="https://cloud-mgf9t6qb7-hack-club-bot.vercel.app/0tornado_footage_1280x720.mp4"
+                opacity={0.4}
             />
             <EventCard
-                targetEpoch={SolarFlareData.timestamp}
-                eventTitle="Solar Flare"
+                targetEpoch={TyphoonData.timestamp}
+                eventTitle="Typhoon"
                 infoContent={
                     <p className="text-sm text-white">
                         <a
                             className="underline underline-offset-1 hover:text-base transition-all cursor-pointer"
-                            href={SolarFlareData.link}>
-                            {SolarFlareData.highlight}
-                        </a>
+                            href={TyphoonData.link}>
+                            {TyphoonData.highlight}
+                        </a>{" "}
+                        {TyphoonData.place}
                     </p>
                 }
             />
@@ -33,4 +34,4 @@ const SolarFlare: React.FC<SolarFlareProps> = ({data}) => {
     );
 };
 
-export default SolarFlare;
+export default Typhoon;

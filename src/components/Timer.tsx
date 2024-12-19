@@ -41,6 +41,12 @@ const Timer: React.FC<TimerProps> = ({ targetEpoch }) => {
         return () => clearInterval(timer);
     }, [targetEpoch]);
 
+    console.log(
+        timeElapsed.days,
+        timeElapsed.hours,
+        timeElapsed.minutes,
+        timeElapsed.seconds
+    );
     // Dumb ahh errors 😭
     return (
         <div className="flex gap-5">
@@ -48,7 +54,11 @@ const Timer: React.FC<TimerProps> = ({ targetEpoch }) => {
                 {/* @ts-expect-error */}
                 <span className="countdown font-mono text-3xl">
                     {/* @ts-expect-error */}
-                    <span style={{ "--value": timeElapsed.days }}></span>
+                    {timeElapsed.days < 99 ? (
+                        <span style={{ "--value": timeElapsed.days }}></span>
+                    ) : (
+                        timeElapsed.days
+                    )}
                 </span>
                 days
             </div>
